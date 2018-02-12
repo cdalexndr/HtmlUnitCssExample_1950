@@ -1,0 +1,21 @@
+apply plugin: 'java'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '6.11'
+    testCompile group: 'net.sourceforge.htmlunit', name: 'htmlunit', version: '2.29'
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+    }
+    testLogging.showStandardStreams = true
+}
